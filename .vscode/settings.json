@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "${workspaceFolder}/env/bin/python3",
+  "python.pythonPath": "C:\\Users\\Professional\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
   "editor.formatOnSave": true,
   "python.linting.pycodestyleEnabled": true,
   "python.linting.pylintEnabled": true,
@@ -9,5 +9,6 @@
   "python.linting.pycodestyleArgs": ["--ignore=E501"],
   "files.exclude": {
     "**/*.pyc": true
-  }
+  },
+  "python.formatting.provider": "yapf"
 }

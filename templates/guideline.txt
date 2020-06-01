@@ -1,0 +1,121 @@
+
+
+1.install boilerplane
+$git clone url
+$ python manage.py rename demo (new project name)
+$pip install -r requirements.txt
+
+2. creating virtualenv
+
+3. installing allauth and configure
+
+$ pip install django-allauth
+$ python manage.py migrate
+
+4.creating model in core app
+$python manage.py makemigrations
+$python manage.py migrate
+
+5. register in admin
+
+6.creating views
+
+7.editing app urls(core) and tn project urls(djecommerce)
+
+
+##tutorial 2##
+
+
+1.add to cart
+2. remove from cart
+3. adding messages for cart 
+
+##tutorial 3##
+1. removing slide and footer from home
+2. fixing navbar
+3.confuguring allauth
+4.LOGIN_REDIRECT_URL ='/'
+5.pagination
+6.showing items to cart
+
+##tutorial 4 ##
+1.creating view for order summary
+2.login_required and login required mixins
+3.get_total_item_price
+4.get_total_item_discount_price
+5.get_total_ammount_saved
+6.get_final_price
+7.plus and minus item from cart
+8. 
+
+##tutorial 5 # proceed to checkout
+1.removing items not required
+2.creating models for form items
+3. installing django countries
+$ pip freeze > requirements.txt
+
+##tutorial 6#
+
+2.creating stripe card
+3.view for the card-- pip freeze > requirements.txt
+4. model #creating model Payment
+5. view #create the payment
+6. view #assign the payment for the order
+7. view #stripe error handling
+problem exists
+
+8. view -Add redirect to selected payment_options
+9. new template - order_snippet for payment
+
+## tutorial 7 #
+1.model adding imagefield
+2.admin- list_display for order
+3. view - new order item
+4.model- creating new model for cupon
+5. admin - register cupon 
+6. view - create new function add_cupon
+7. view - get_cupon function
+8. url - add_cupon
+9. new template - order_snippet.html -checkout
+10.checkout view - get the order sidebar
+11. order-snippet - promo code
+12. form - cupon form
+13. view - bring cupon form and add to add_cupon
+14. order-snippet -adding cuponform
+15. model -subtract cupon from total
+16.view -DISPLAY_CUPON_FORM : False
+
+17. logic for #address na thakle payment page e jata parbe na
+18. view -changed to classbasedview add_cupon
+19. view- order-summary - showing discount
+
+## Tutorial 8 ## Refund ####3creating order management system
+1. todo : promo code --order_snippet
+2.  ORDER MANAGEMEN LIFE CYCLE
+    1. item added to cart
+    2. Adding a billing address
+        failed checkout
+    3. payment
+    (preprocessing,processing,packaging)
+    4. delivered
+    5. received
+    6. refund
+3. admin- list_display lots of order fields
+4. admin - list_filter order fields
+5. admin - list_display_links
+4. model order -creting a reference code to communcate
+5. admin - add search_filter for ref_code
+
+6.view - refudnView
+7.form - refunForm
+8.model -refund
+9.url - refudnView
+10. html - refundpage
+11. view - link refund page with get request 
+12. admin -update request for refund granted
+
+## Tutorial 9 ##
+
+
+
+
