@@ -19,12 +19,23 @@ class CheckOutForm(forms.Form):
             attrs={"class": "custom-select d-block w-100"}))
     zip = forms.CharField(widget=forms.TextInput(
         attrs={"class": "form-control"}))
-    same_billing_address = forms.BooleanField(required=False,
-                                              widget=forms.CheckboxInput())
+    same_as_billing_address = forms.BooleanField(required=False,
+                                                 widget=forms.CheckboxInput())
     save_info = forms.BooleanField(required=False,
                                    widget=forms.CheckboxInput())
     payment_options = forms.ChoiceField(widget=forms.RadioSelect,
                                         choices=PAYMENT_CHOICES)
+
+    street_address = forms.CharField(widget=forms.TextInput(
+        attrs={"placeholder": "1234 Main St"}))
+    appartment_adress = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={"placeholder": "Apartment or suite"}))
+    country = CountryField(
+        blank_label='(select country)').formfield(widget=CountrySelectWidget(
+            attrs={"class": "custom-select d-block w-100"}))
+    zip = forms.CharField(widget=forms.TextInput(
+        attrs={"class": "form-control"}))
 
 
 class CuponForm(forms.Form):

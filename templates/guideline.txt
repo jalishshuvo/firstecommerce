@@ -115,6 +115,11 @@ problem exists
 12. admin -update request for refund granted
 
 ## Tutorial 9 ##
+seting shipping address same as billing address
+1. model - create address_type and default address
+2. admin - register the AddressModel
+
+
 
 
 

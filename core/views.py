@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View
-from .models import Item, Order, OrderItem, BillingAddress, Payment, Cupon, Refund
+from .models import Item, Order, OrderItem, Address, Payment, Cupon, Refund
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -84,20 +84,21 @@ class CheckoutView(View):
                 country = form.cleaned_data.get('country')
                 zip = form.cleaned_data.get('zip')
                 # TODO : Add functionality for these fields
-                # same_billing_address = form.cleaned_data.get(
-                #     'same_billing_address')
+                # same_shipping_address = form.cleaned_data.get(
+                #     'same_shipping_address')
                 # save_info = form.cleaned_data.get('save_info')
                 payment_options = form.cleaned_data.get('payment_options')
-                billing_address = BillingAddress(
-                    user=self.request.user,
-                    street_address=street_address,
-                    appartment_adress=appartment_adress,
-                    country=country,
-                    zip=zip)
+                billing_address = Address(user=self.request.user,
+                                          street_address=street_address,
+                                          appartment_adress=appartment_adress,
+                                          country=country,
+                                          zip=zip,
+                                          address_type="B")
                 billing_address.save()
                 order.billing_address = billing_address
                 order.save()
                 # TODO:Add redirect to selected payment_options
+
                 if payment_options == 'S':
                     return redirect('core:payment', payment_option='stripe')
                 elif payment_options == 'P':

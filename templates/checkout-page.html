@@ -17,15 +17,23 @@
 
         <!--Card-->
         <div class="card">
-          
-          <form  method="POST" class="card-body">
-              {% csrf_token %}
-              {{ form|crispy }}
-              <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          <h3 style="text-align: center;margin-top:15px;"> Shipping Address</h3>
+          <form method="POST" class="card-body">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <hr class="mb-4">
           </form>
 
-          
+
+          <h3 style="text-align: center;margin-top:15px;"> Billing Address</h3>
+          <form method="POST" class="card-body">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </form>
+
+
 
         </div>
         <!--/.Card-->
@@ -33,7 +41,7 @@
       </div>
       <!--Grid column-->
       <div class="col-md-4 mb-4">
-         {% include "order_snippet.html" %}
+        {% include "order_snippet.html" %}
       </div>
 
     </div>

@@ -14,6 +14,10 @@ LABEL_CHOICES = (
     ('S', 'secondary'),
     ('D', 'danger'),
 )
+ADDRESS_CHOICES = (
+    ('B', 'billing'),
+    ('S', 'shipping'),
+)
 
 
 class Item(models.Model):
@@ -74,7 +78,13 @@ class Order(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
-    billing_address = models.ForeignKey("BillingAddress",
+    shipping_address = models.ForeignKey("Address",
+                                         related_name="shipping_address",
+                                         on_delete=models.SET_NULL,
+                                         blank=True,
+                                         null=True)
+    billing_address = models.ForeignKey("Address",
+                                        related_name="billing_address",
                                         on_delete=models.SET_NULL,
                                         blank=True,
                                         null=True)
@@ -115,16 +125,21 @@ class Order(models.Model):
         return total
 
 
-class BillingAddress(models.Model):
+class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     street_address = models.CharField(max_length=100)
     appartment_adress = models.CharField(max_length=100)
     country = CountryField(multiple=False)
     zip = models.CharField(max_length=100)
+    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
+    default = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
+
+    class Meta():
+        verbose_name_plural = 'Addresses'
 
 
 class Payment(models.Model):
